@@ -29,8 +29,8 @@ function Dashboard() {
       )}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <Kpi label="Produtos" value={d.productsTotal} tone="primary" />
-        <Kpi label="Ativos" value={d.productsByStatus.active ?? 0} tone="success" />
-        <Kpi label="Claims em revisão" value={d.claimsByStatus.under_review ?? 0} tone="info" />
+        <Kpi label="Ativos" value={d.productsByStatus['active'] ?? 0} tone="success" />
+        <Kpi label="Claims em revisão" value={d.claimsByStatus['under_review'] ?? 0} tone="info" />
         <Kpi label="Usuários" value={d.users} />
       </div>
       <div className="mt-6 grid gap-4 md:grid-cols-2">

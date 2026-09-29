@@ -42,7 +42,7 @@ function Config() {
           } catch (err) { toast.error(errMsg(err)); }
         }}>
           {FIELDS.map(([k, l]) => (
-            <Field key={k} label={l} hint={f[k] ? undefined : "CONFIGURAR"}>
+            <Field key={k} label={l} {...(f[k] ? {} : { hint: "CONFIGURAR" })}>
               <Input type="number" step="0.01" min="0" value={f[k] ?? ""} onChange={(e) => setF((s) => ({ ...s, [k]: e.target.value }))} />
             </Field>
           ))}
