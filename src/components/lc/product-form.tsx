@@ -32,11 +32,11 @@ export function ProductForm({ initial, onSaved }: { initial?: P; onSaved: (id: s
       const r = await save({
         data: {
           ...pick,
-          id: f.id as string | undefined,
-          category_id: (f.category_id as string) || null,
+          id: f['id'] as string | undefined,
+          category_id: (f['category_id'] as string) || null,
           expiry_date: s("expiry_date") || null,
-          unit_cost: f.unit_cost === "" || f.unit_cost == null ? null : Number(f.unit_cost),
-          regulatory_status: f.regulatory_status as "pendente",
+          unit_cost: f['unit_cost'] === "" || f['unit_cost'] == null ? null : Number(f['unit_cost']),
+          regulatory_status: f['regulatory_status'] as "pendente",
         } as never,
       });
       toast.success("Produto salvo");
@@ -60,7 +60,7 @@ export function ProductForm({ initial, onSaved }: { initial?: P; onSaved: (id: s
             </select>
           </Field>
           <Field label="Validade"><Input type="date" value={s("expiry_date")} onChange={(e) => set("expiry_date", e.target.value)} /></Field>
-          <Field label="Custo unitário (R$)"><Input type="number" step="0.01" min="0" value={(f.unit_cost as number | null) ?? ""} onChange={(e) => set("unit_cost", e.target.value)} /></Field>
+          <Field label="Custo unitário (R$)"><Input type="number" step="0.01" min="0" value={(f['unit_cost'] as number | null) ?? ""} onChange={(e) => set("unit_cost", e.target.value)} /></Field>
           <Field label="Status regulatório">
             <select value={s("regulatory_status")} onChange={(e) => set("regulatory_status", e.target.value)} className="h-9 w-full rounded-md border bg-background px-3 text-sm">
               <option value="pendente">Pendente</option><option value="em_analise">Em análise</option><option value="regular">Regular</option>

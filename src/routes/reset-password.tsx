@@ -24,7 +24,7 @@ function Reset() {
         const { error } = await supabase.auth.updateUser({ password: pw });
         setBusy(false);
         if (error) return toast.error(error.message);
-        toast.success("Senha atualizada"); nav({ to: "/dashboard" });
+        toast.success("Senha atualizada"); return nav({ to: "/dashboard" });
       }}>
         <h1 className="text-xl font-semibold">Definir nova senha</h1>
         <Input type="password" required minLength={8} placeholder="Nova senha (mín. 8)" value={pw} onChange={(e) => setPw(e.target.value)} />
